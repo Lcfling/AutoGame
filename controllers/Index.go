@@ -46,3 +46,7 @@ func (this *IndexController) Prepare() {
 func (this *IndexController) SendMsg(msg string) {
 	publish <- newEvent(4, "", msg)
 }
+func (this *IndexController) Options() {
+	this.Data["json"] = map[string]interface{}{"status": 200, "message": "ok", "moreinfo": ""}
+	this.ServeJSON()
+}

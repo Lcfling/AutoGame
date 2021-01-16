@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	_ "github.com/Lcfling/AutoGame/initial"
 	"github.com/Lcfling/AutoGame/models"
 	_ "github.com/Lcfling/AutoGame/routers"
@@ -17,6 +18,7 @@ import (
 func main() {
 	rand.Seed(time.Now().UnixNano())
 	initArgs()
+	//beego.InsertFilter("*",beego.BeforeRouter,optionFlater)
 	beego.InsertFilter("*", beego.BeforeRouter, cors.Allow(&cors.Options{
 		//允许访问所有源
 		AllowAllOrigins: true,
@@ -26,15 +28,22 @@ func main() {
 		//指的是允许的Header的种类
 		AllowHeaders: []string{"*"},
 		//公开的HTTP标头列表
-		ExposeHeaders: []string{"Content-Length"},
+		ExposeHeaders: []string{"*"},
 		//如果设置，则允许共享身份验证凭据，例如cookie
 		AllowCredentials: true,
 	}))
-	//beego.InsertFilter("/*", beego.BeforeRouter, FilterUser)
+
 	beego.ErrorHandler("404", page_not_found)
 	beego.ErrorHandler("401", page_note_permission)
 	beego.Run()
 }
+
+var optionFlater = func(ctx *context.Context) {
+	fmt.Println("有限运行")
+	ctx.Output.JSON(map[string]interface{}{"status": 200, "message": "ok", "moreinfo": ""}, false, false)
+	//ctx.Redirect(302, "/login")
+}
+
 func initArgs() {
 	args := os.Args
 	for _, v := range args {

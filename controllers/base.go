@@ -3,9 +3,6 @@ package controllers
 import (
 	//"github.com/virteman/OPMS/initial"
 
-	"strconv"
-	"strings"
-
 	"github.com/astaxie/beego"
 )
 
@@ -23,13 +20,13 @@ func (this *BaseController) Prepare() {
 	userLogin := this.GetSession("userLogin")
 	if userLogin == nil {
 		this.IsLogin = false
-		_, ok := this.Ctx.Input.Session("userLogin").(string)
+		/*_, ok := this.Ctx.Input.Session("userLogin").(string)
 		if !ok && !(this.Ctx.Request.RequestURI == "/login" || strings.Contains(this.Ctx.Request.RequestURI, "/register")) {
 			this.Ctx.Redirect(302, "/login")
-		}
+		}*/
 	} else {
 		this.IsLogin = true
-		tmp := strings.Split((this.GetSession("userLogin")).(string), "||")
+		/*tmp := strings.Split((this.GetSession("userLogin")).(string), "||")
 
 		userid, _ := strconv.Atoi(tmp[0])
 		longid := int64(userid)
@@ -39,7 +36,7 @@ func (this *BaseController) Prepare() {
 
 		this.UserUserId = longid
 		this.UserUsername = tmp[1]
-		this.UserAvatar = tmp[2]
+		this.UserAvatar = tmp[2]*/
 
 		//this.Data["PermissionModel"] = this.GetSession("userPermissionModel")
 		//this.Data["PermissionModelc"] = this.GetSession("userPermissionModelc")
