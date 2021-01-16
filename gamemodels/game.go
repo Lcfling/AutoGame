@@ -115,6 +115,79 @@ func (p *Pingguo) GetPlayMethd(data map[string]string) []PlayMathds {
 
 	return result
 }
+
+//denglu
+// {
+//	"token": "UMTZxdtkj7uHVAy+X4QIiqzg7yTtuBpBR3aGX0GG9jorRqQlDUU3oA==",
+//	"serverTime": "2021-01-16 18:07:54",
+//	"userId": 5363643,
+//	"userName": "aylui2012",
+//	"fullName": "刘辰*",
+//	"loginTime": "2021-016 18:07:54",
+//	"lastLoginTime": "2021-01-16 16:53:58",
+//	"money": null,
+//	"email": "",
+//	"wx": "",
+//	"phone": "1****5",
+//	"qq": "1****0",
+//	"rechLevel": "0",
+//	"hasFundPwd": true,
+//	"testFlag": 0,
+//	"updatePw": 0,
+//	"updatePayPw": 0,
+//	"state": 1,
+//	"hotGames": null,
+//	"nickName": "ay***12",
+//	"iconUrl": null,
+//	"setted": 0,
+//	"platCode": "pg",
+//	"gameIds": null,
+//	"testType": 2,
+//	"currency": "RMB",
+//	"userWalletViews": [{
+//		"money": 50.995,
+//		"currency": "RMB"
+//	}, {
+//		"money": 0.0,
+//		"currency": "USDT"
+//	}],
+//	"tradingPhone": "",
+//	"tradingCredit": 3.0,
+//	"hyType": 1,
+//	"userRebateList": [{
+//		"cateId": 1,
+//		"rebate": 10
+//	}, {
+//		"cateId": 2,
+//		"rebate": 10
+//	}, {
+//		"cateId": 3,
+//		"rebate": 10
+//	}, {
+//		"cateId": 4,
+//		"rebate": 10
+//	}, {
+//		"cateId": 5,
+//		"rebate": 10
+//	}, {
+//		"cateId": 6,
+//		"rebate": 10
+//	}, {
+//		"cateId": 7,
+//		"rebate": 10
+//	}, {
+//		"cateId": 8,
+//		"rebate": 10
+//	}, {
+//		"cateId": 9,
+//		"rebate": 10
+//	}, {
+//		"cateId": 10,
+//		"rebate": 10
+//	}],
+//	"tradingStandSwitch": false,
+//	"point": 0.0
+//}
 func (p *Pingguo) DoLogin(user map[string]string) error {
 	cli := goz.NewClient()
 	Data := map[string]interface{}{

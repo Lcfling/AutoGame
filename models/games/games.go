@@ -6,10 +6,11 @@ import (
 )
 
 type Platform struct {
-	Id      int64
-	Url     string
-	Name    string
-	Configs string
+	Id       int64
+	Url      string
+	Name     string
+	Configs  string
+	Platform string
 }
 
 func (this *Platform) TableName() string {
